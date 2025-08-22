@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController   
-@RequestMapping("/api/tasks")  // ✅ Base URL: http://localhost:8080/api/task
+@RequestMapping("/api/tasks") 
 public class taskController {
 
     @Autowired
