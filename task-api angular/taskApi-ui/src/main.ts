@@ -1,6 +1,11 @@
+import 'zone.js'; // ✅ Angular needs this unless using zoneless mode
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { App } from './app/app';
+import { provideHttpClient, withFetch } from '@angular/common/http'; // ✅ HttpClient provider
+import { TaskListComponent } from './app/components/task-api/task-api.component';
 
-bootstrapApplication(App, appConfig)
-  .catch((err) => console.error(err));
+
+bootstrapApplication(TaskListComponent, {
+  providers: [
+     provideHttpClient(withFetch()) // ✅ this makes HttpClient available everywhere
+  ]
+}).catch(err => console.error(err));
